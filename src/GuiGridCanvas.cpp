@@ -70,8 +70,8 @@ void GuiGridCanvas::draw()
             int destX = relativeDestRect.x + (i * cellW);
             int destY = relativeDestRect.y + (j * cellH);
 
-            SDL_Rect src = {0, 0, cellW, cellH};
-            SDL_Rect dest = {destX, destY, cellW, cellH};
+            SDL_Rect src = {0, 0, static_cast<int>(cellW), static_cast<int>(cellH)};
+            SDL_Rect dest = {destX, destY, static_cast<int>(cellW), static_cast<int>(cellH)};
 
             if(!paletteValMap.empty())
             {
@@ -126,7 +126,7 @@ void GuiGridCanvas::draw()
 
         grid_rect rect = {lesserX, lesserY, (greaterX - lesserX) + 1, (greaterY - lesserY) + 1};
 
-        SDL_Rect selectionRect = {relativeDestRect.x + (rect.x * cellW), relativeDestRect.y + (rect.y * cellH), rect.w * cellW, rect.h * cellH};
+        SDL_Rect selectionRect = {static_cast<int>(relativeDestRect.x + (rect.x * cellW)), static_cast<int>(relativeDestRect.y + (rect.y * cellH)), static_cast<int>(rect.w * cellW), static_cast<int>(rect.h * cellH)};
 
         rgba_t v = 0x9090FF9F;
 
@@ -140,7 +140,7 @@ void GuiGridCanvas::draw()
         int cursorX = relativeDestRect.x + (cellUnderMouse.x * cellW);
         int cursorY = relativeDestRect.y + (cellUnderMouse.y * cellH);
 
-        SDL_Rect cursorRect = {cursorX, cursorY, cellW, cellH};
+        SDL_Rect cursorRect = {cursorX, cursorY, static_cast<int>(cellW), static_cast<int>(cellH)};
 
         rgba_t v = 0xEFEFEF9F;
 

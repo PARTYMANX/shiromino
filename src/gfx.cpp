@@ -1155,8 +1155,8 @@ int gfx_drawtext_partial(coreState *cs, bstring text, int pos, int len, int x, i
         SDL_SetTextureAlphaMod(font->outline_sheet, A(fmt->outline_rgba));
     }
 
-    SDL_Rect src = {.x = 0, .y = 0, .w = font->char_w, .h = font->char_h};
-    SDL_Rect dest = {.x = x, .y = y, .w = fmt->size_multiplier * (float)font->char_w, .h = fmt->size_multiplier * (float)font->char_h};
+    SDL_Rect src = {.x = 0, .y = 0, .w = static_cast<int>(font->char_w), .h = static_cast<int>(font->char_h)};
+    SDL_Rect dest = {.x = x, .y = y, .w = static_cast<int>(fmt->size_multiplier * (float)font->char_w), .h = static_cast<int>(fmt->size_multiplier * (float)font->char_h)};
 
     int i = 0;
 

@@ -86,7 +86,7 @@ int SPM_Spec::checkedFall(grid_t *field, ActivatedPolyomino& mino, int subY)
 {
     SPM_point backupPos = mino.position;
 
-    SPM_offset grav = {0, (subY / SPM_SUBUNIT_SCALE), 0, (subY % SPM_SUBUNIT_SCALE)};
+    SPM_offset grav = {0, (subY / SPM_SUBUNIT_SCALE), 0, static_cast<uint32_t>(subY % SPM_SUBUNIT_SCALE)};
     SPM_point maximum = mino.position + grav;
 
     while((mino.position.y * SPM_SUBUNIT_SCALE + mino.position.subY) < (maximum.y * SPM_SUBUNIT_SCALE + maximum.subY))

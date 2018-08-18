@@ -554,7 +554,7 @@ void GuiTextField::textDelete(unsigned int start, unsigned int end)
         end = value.length();
     }
 
-    value.erase((string::iterator)&value[start], (string::iterator)&value[end]);
+    value.erase(value.begin() + start, value.begin() + end);
     if(var)
     {
         var->set(value);

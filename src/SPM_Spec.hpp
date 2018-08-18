@@ -89,7 +89,7 @@ inline SPM_point operator + (SPM_point& a, SPM_offset& b)
 
 inline SPM_point operator - (SPM_point& a, SPM_offset& b)
 {
-    SPM_offset b_ = {-b.x, -b.y, -b.subX, -b.subY};
+    SPM_offset b_ = {-b.x, -b.y, static_cast<uint32_t>(-b.subX), static_cast<uint32_t>(-b.subY)};
     return operator + (a, b_);
 }
 
